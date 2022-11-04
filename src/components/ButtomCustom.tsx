@@ -5,11 +5,17 @@ interface Props {
   text: string;
   color?: string;
   isWidth?: boolean;
+  action: (numText: string) => void;
 }
 
-const ButtomCustom = ({text, color = '#2D2D2D', isWidth = false}: Props) => {
+const ButtomCustom = ({
+  text,
+  color = '#2D2D2D',
+  isWidth = false,
+  action,
+}: Props) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => action(text)}>
       <View
         style={{
           ...styles.button,
